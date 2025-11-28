@@ -52,6 +52,47 @@ export function useOrders() {
         }
     };
 
+    const fetchOrders = async () => {
+        loading.value = true;
+        error.value = null;
+
+        try {
+            const res = await $fetch<OrderResponse>("http://restoran.test/api/order", {
+                headers: {
+                    Authorization: `Bearer ${token.value}`
+                }
+            });
+            console.log(res);
+            orders.value = res.data ?? res;
+        } catch (err: any) {
+            error.value = err.message || "Gagal memuat Order List";
+        } finally {
+            loading.value = false;
+        }
+    };
+
+    const fetchOrderReport = async (query: any = {}): Promise<any> => {
+        loading.value = true;
+        error.value = null;
+
+        try {
+            const res = await $fetch("http://restoran.test/api/order-report", {
+                method: "GET",
+                query: query,
+                headers: {
+                    Authorization: `Bearer ${token.value}`,
+                },
+            });
+
+            return res;
+        } catch (err: any) {
+            error.value = err?.data?.message || err.message || "Gagal memuat Order Report";
+            return null;
+        } finally {
+            loading.value = false;
+        }
+    };
+
     return {
         orders,
         loading,
@@ -59,5 +100,7 @@ export function useOrders() {
         success,
         token,
         createOrder,
+        fetchOrders,
+        fetchOrderReport
     };
 }

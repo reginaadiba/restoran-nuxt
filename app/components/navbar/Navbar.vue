@@ -12,7 +12,7 @@
             <div class="hidden md:flex gap-6 text-lg">
                 <NuxtLink to="/" class="hover:text-blue-600">Home</NuxtLink>
                 <NuxtLink v-if="role === '4' || role === '1'" to="/order" class="hover:text-blue-600">Order</NuxtLink>
-                <NuxtLink v-if="role === '4' || role === '2' || role === '3'" to="/order-list" class="hover:text-blue-600">Order List</NuxtLink>
+                <NuxtLink to="/orders" class="hover:text-blue-600">Order List</NuxtLink>
                 <NuxtLink v-if="role === '4'" to="/order-report" class="hover:text-blue-600">Order Report</NuxtLink>
                 <NuxtLink v-if="role === '4'" to="/products" class="hover:text-blue-600">Products</NuxtLink>
 

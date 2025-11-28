@@ -27,7 +27,7 @@ const filteredProducts = computed(() => {
 </script>
 <template>
     <div class="container">
-        <h2 class="text-4xl my-5">Product List</h2>
+        <h2 class="text-4xl font-bold my-5">Product List</h2>
 
         <button @click="goToAddProduct" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
             Add Product
