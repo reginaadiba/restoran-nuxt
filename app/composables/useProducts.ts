@@ -1,20 +1,20 @@
+interface Product {
+    id: number;
+    name: string;
+    price: number;
+    image: string;
+    category: string;
+}
+
+interface ProductResponse {
+    data: Product[];
+}
+
 export function useProducts() {
     const products = ref<any[]>([]);
     const loading = ref(false);
     const error = ref<string | null>(null);
     const { token } = useAuth();
-
-    interface Product {
-        id: number;
-        name: string;
-        price: number;
-        image: string;
-        category: string;
-    }
-
-    interface ProductResponse {
-        data: Product[];
-    }
 
     const fetchProducts = async () => {
         loading.value = true;
