@@ -16,7 +16,11 @@
   </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+useHead ({
+  title: 'RestoranKu'
+});
+
 import FoodCard from "~/components/card/FoodCard.vue"
 import HeroBanner from "~/components/hero/HeroBanner.vue"
 
